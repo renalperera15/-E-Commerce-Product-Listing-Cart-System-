@@ -55,6 +55,20 @@ export const Home = () => {
     <div className="home-layout">
       <Header onSearch={handleHeaderSearch} onCartClick={() => setIsCartOpen(true)} />
 
+      {/* Modern Hero Section */}
+      <section className="home-hero">
+        <div className="hero-content">
+          <div className="hero-icon">
+            <svg width="48" height="48" fill="none" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="url(#paint0_linear_1_2)"/><path d="M16 34c-1.1 0-2-.9-2-2V16c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H16zm0-2h16V16H16v16zm4-2h8v-2h-8v2zm0-4h8v-2h-8v2zm0-4h8v-2h-8v2z" fill="#fff"/>
+            <defs><linearGradient id="paint0_linear_1_2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse"><stop stopColor="#0066ff"/><stop offset="1" stopColor="#0052cc"/></linearGradient></defs></svg>
+          </div>
+          <div>
+            <h1 className="hero-title">Discover & Shop Modern Products</h1>
+            <p className="hero-tagline">Curated selection. Fast checkout. Beautiful experience.</p>
+          </div>
+        </div>
+      </section>
+
       <div className="home-container">
         <LeftSidebar
           search={search}
@@ -64,16 +78,18 @@ export const Home = () => {
         />
 
         <main className="main-content">
-          <h2 className="products-heading">Products</h2>
-          {loading ? (
-            <Loader />
-          ) : (
-            <div className="products-grid">
-              {filtered.map((p) => (
-                <ProductCard key={p.id} product={p} />
-              ))}
-            </div>
-          )}
+          <div className="products-card-glass">
+            <h2 className="products-heading modern">Products</h2>
+            {loading ? (
+              <Loader />
+            ) : (
+              <div className="products-grid">
+                {filtered.map((p) => (
+                  <ProductCard key={p.id} product={p} />
+                ))}
+              </div>
+            )}
+          </div>
         </main>
       </div>
 
